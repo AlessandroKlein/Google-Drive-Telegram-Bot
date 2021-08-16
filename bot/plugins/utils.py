@@ -18,7 +18,7 @@ def _send_log(client, message):
         file_name=f.name,
         reply_to_message_id=message.message_id
         )
-      LOGGER.info(f'Log file sent to {message.from_user.id}')
+      LOGGER.info(f'Archivo de registro enviado a {message.from_user.id}')
     except FloodWait as e:
       sleep(e.x)
     except RPCError as e:
@@ -27,7 +27,7 @@ def _send_log(client, message):
 @Client.on_message(filters.private & filters.incoming & filters.command(['restart']) & filters.user(SUDO_USERS), group=2)
 def _restart(client, message):
   shutil.rmtree(DOWNLOAD_DIRECTORY)
-  LOGGER.info('Deleted DOWNLOAD_DIRECTORY successfully.')
-  message.reply_text('**♻️Restarted Successfully !**', quote=True)
-  LOGGER.info(f'{message.from_user.id}: Restarting...')
+  LOGGER.info('DOWNLOAD_DIRECTORY eliminado correctamente.')
+  message.reply_text('**♻️Reiniciado con éxito !**', quote=True)
+  LOGGER.info(f'{message.from_user.id}: Reiniciando...')
   execl(executable, executable, "-m", "bot")
