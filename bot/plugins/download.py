@@ -13,14 +13,14 @@ from pyrogram.errors import FloodWait, RPCError
 def _download(client, message):
   user_id = message.from_user.id
   if not message.media:
-    sent_message = message.reply_text('🕵️**Checking link...**', quote=True)
+    sent_message = message.reply_text('🕵️**Comprobando enlace...**', quote=True)
     if message.command:
       link = message.command[1]
     else:
       link = message.text
     if 'drive.google.com' in link:
       sent_message.edit(Messages.CLONING.format(link))
-      LOGGER.info(f'Copy:{user_id}: {link}')
+      LOGGER.info(f'Copiar:{user_id}: {link}')
       msg = GoogleDrive(user_id).clone(link)
       sent_message.edit(msg)
     else:
@@ -40,7 +40,7 @@ def _download(client, message):
         sent_message.edit(Messages.DOWNLOADED_SUCCESSFULLY.format(os.path.basename(file_path), humanbytes(os.path.getsize(file_path))))
         msg = GoogleDrive(user_id).upload_file(file_path)
         sent_message.edit(msg)
-        LOGGER.info(f'Deleteing: {file_path}')
+        LOGGER.info(f'Eliminando: {file_path}')
         os.remove(file_path)
       else:
         sent_message.edit(Messages.DOWNLOAD_ERROR.format(file_path, link))
@@ -49,7 +49,7 @@ def _download(client, message):
 @Client.on_message(filters.private & filters.incoming & (filters.document | filters.audio | filters.video | filters.photo) & CustomFilters.auth_users)
 def _telegram_file(client, message):
   user_id = message.from_user.id
-  sent_message = message.reply_text('🕵️**Checking File...**', quote=True)
+  sent_message = message.reply_text('🕵️**Comprobando archivo...**', quote=True)
   if message.document:
     file = message.document
   elif message.video:
@@ -69,14 +69,14 @@ def _telegram_file(client, message):
     sent_message.edit(msg)
   except RPCError:
     sent_message.edit(Messages.WENT_WRONG)
-  LOGGER.info(f'Deleteing: {file_path}')
+  LOGGER.info(f'Eliminando: {file_path}')
   os.remove(file_path)
 
 @Client.on_message(filters.incoming & filters.private & filters.command(BotCommands.YtDl) & CustomFilters.auth_users)
 def _ytdl(client, message):
   user_id = message.from_user.id
   if len(message.command) > 1:
-    sent_message = message.reply_text('🕵️**Checking Link...**', quote=True)
+    sent_message = message.reply_text('🕵️**Comprobando enlace...**', quote=True)
     link = message.command[1]
     LOGGER.info(f'YTDL:{user_id}: {link}')
     sent_message.edit(Messages.DOWNLOADING.format(link))
@@ -85,7 +85,7 @@ def _ytdl(client, message):
       sent_message.edit(Messages.DOWNLOADED_SUCCESSFULLY.format(os.path.basename(file_path), humanbytes(os.path.getsize(file_path))))
       msg = GoogleDrive(user_id).upload_file(file_path)
       sent_message.edit(msg)
-      LOGGER.info(f'Deleteing: {file_path}')
+      LOGGER.info(f'Eliminando: {file_path}')
       os.remove(file_path)
     else:
       sent_message.edit(Messages.DOWNLOAD_ERROR.format(file_path, link))
