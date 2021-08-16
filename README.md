@@ -1,23 +1,22 @@
-# Google Drive Uploader Telegram Bot
-**A Telegram bot to upload files from Telegram or Direct links to Google Drive.**
-- Find it on Telegram as [Google Drive Uploader](https://t.me/uploadgdrivebot)
+# Bot de Telegram Uploader de Google Drive
+** Un bot de Telegram para cargar archivos desde Telegram o enlaces directos a Google Drive. **
+- Encuéntrelo en Telegram como [Google Drive Uploader]
 
-## Features
-- [X] Telegram files support.
-- [X] Direct Links support.
-- [X] Custom Upload Folder.
-- [X] TeamDrive Support.
-- [X] Clone/Copy Google Drive Files.
-- [X] Delete Google Drive Files.
-- [X] Empty Google Drive trash.
-- [X] youtube-dl support.
+## Características
+- [X] Soporte de archivos de Telegram.
+- [X] Soporte de enlaces directos.
+- [X] Carpeta de carga personalizada.
+- [X] Soporte TeamDrive.
+- [X] Clonar / Copiar archivos de Google Drive.
+- [X] Eliminar archivos de Google Drive.
+- [X] Vaciar la papelera de Google Drive.
+- Soporte de [X] youtube-dl.
 
-## ToDo 
-- [ ] Handle more exceptions.
-- [ ] LOGGER support.
-- [ ] Service account support.
-- [ ] Update command.
-
+## Que hacer
+- [] Maneja más excepciones.
+- [] Soporte LOGGER.
+- [] Soporte de cuenta de servicio.
+- [] Comando de actualización.
 ## Deploying
 
 ### Deploy on [Heroku](https://heroku.com)
