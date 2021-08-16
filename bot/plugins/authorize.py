@@ -36,12 +36,12 @@ async def _auth(client, message):
               redirect_uri=REDIRECT_URI
       )
       auth_url = flow.step1_get_authorize_url()
-      LOGGER.info(f'AuthURL:{user_id}')
+      LOGGER.info(f'URLdeAutenticación:{user_id}')
       await message.reply_text(
         text=Messages.AUTH_TEXT.format(auth_url),
         quote=True,
         reply_markup=InlineKeyboardMarkup(
-                  [[InlineKeyboardButton("Authorization URL", url=auth_url)]]
+                  [[InlineKeyboardButton("URL de autorización", url=auth_url)]]
               )
         )
     except Exception as e:
@@ -68,7 +68,7 @@ async def _token(client, message):
     if flow:
       try:
         user_id = message.from_user.id
-        sent_message = await message.reply_text("🕵️**Checking received code...**", quote=True)
+        sent_message = await message.reply_text("🕵️**Comprobando el código recibido...**", quote=True)
         creds = flow.step2_exchange(message.text)
         gDriveDB._set(user_id, creds)
         LOGGER.info(f'AuthSuccess: {user_id}')
