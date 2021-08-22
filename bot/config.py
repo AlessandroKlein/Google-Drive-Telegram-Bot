@@ -2,9 +2,9 @@ class config:
     BOT_TOKEN = "1925950412:AAFqFBejQcFDSHxbq6ZjVnGsm8hygBAN1OI"
     APP_ID = "7218170"
     API_HASH = "f303a5116fa885043cce5478a8fa919e"
-    DATABASE_URL = "ANYTHING"
+    DATABASE_URL = ""
     SUDO_USERS = "1062776854" # Sepearted by space.
-    SUPPORT_CHAT_LINK = "https://viperadnan-git.github.io"
+    SUPPORT_CHAT_LINK = ""
     DOWNLOAD_DIRECTORY = "./downloads/"
     G_DRIVE_CLIENT_ID = "127957818724-alkoquolo79d86nh1ppmrmh90nvjglt0.apps.googleusercontent.com"
     G_DRIVE_CLIENT_SECRET = "hZBgX0Kc3Q8_SH98KYOd16C2"
